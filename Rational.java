@@ -18,7 +18,7 @@ public class Rational{
     public String toString(){
 	return numerator +"/"+ denominator;
     }
-    public static double floatValue(){
+    public double floatValue(){
 	return (double) numerator / denominator;
     }
 } 
