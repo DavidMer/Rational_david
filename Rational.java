@@ -51,5 +51,27 @@ public class Rational
         denominator *= other.numerator;
         reduce();
     }
+    public Rational add(Rational other){
+	int gcd = 0;
+	if (denominator > other.denominator) {
+	    gcd = gcd(denominator,other.denominator);
+	}
+	else {
+	    gcd = gcd(other.denominator,denominator);
+	}
+	numerator = numerator * (gcd/denominator);
+	numerator += other.numerator*(gcd/other.denominator);
+	denominator = gcd;
+	Rational r = new Rational(numerator,denominator);
+	return r;
+    }
+    public static void main(String[] args) {
+	Rational r = new Rational(2,3); //Stores the rational number 2/3
+	Rational s = new Rational(1,2); //Stores the rational number 1/2
+	Rational t = new Rational(4,18); //Stores the rational number 4/18
+	System.out.println(r.add(s));  //Adds r to s, changes r to 7/6.  s remains 1/2
+	t.reduce(); //Changes t to 2/9
+    }
+
 }
 //david is poop
