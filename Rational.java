@@ -52,3 +52,5 @@ public class Rational
         reduce();
     }
 }
+//david is poop
+
