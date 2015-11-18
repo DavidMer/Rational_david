@@ -52,6 +52,7 @@ public class Rational
         reduce();
     }
     public Rational add(Rational other){
+    	//must be void!
 	int gcd = 0;
 	if (denominator > other.denominator) {
 	    gcd = gcd(denominator,other.denominator);
