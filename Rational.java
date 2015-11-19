@@ -28,16 +28,24 @@ public class Rational
     {
         return (double)numerator / denominator;
     }
-    private int gcd(int a, int b)
-    {
-        if (b == 0) return a;
-        return gcd(b, a%b);
+
+   
+    public static int lcm(int a,int b){
+	if (a > b){
+	    if (a%b) == 0 {return a}
+	    else{ return lcm(a*2,b) }
+	}
+
+	else {
+	    if (b%a) == 0 {return b}
+	    else{ return lcm(b*2,a) }
+	}
     }
     private void reduce()
     {
-        int g = gcd(numerator, denominator);
-        numerator /= g;
-        denominator /= g;
+	int g = gcd(numerator, denominator);
+	numerator /= g;
+	denominator /= g;
     }
     public void multiply(Rational other)
     {
@@ -51,14 +59,14 @@ public class Rational
         denominator *= other.numerator;
         reduce();
     }
-    public Rational add(Rational other){
+    public void  add(Rational other){
     	//must be void!
-	int gcd = 0;
+	int lcm = 0;
 	if (denominator > other.denominator) {
-	    gcd = gcd(denominator,other.denominator);
+	    lcm = lcm(denominator,other.denominator);
 	}
 	else {
-	    gcd = gcd(other.denominator,denominator);
+	    lcm = lcm(other.denominator,denominator);
 	}
 	numerator = numerator * (gcd/denominator);
 	numerator += other.numerator*(gcd/other.denominator);
