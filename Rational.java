@@ -77,6 +77,17 @@ public class Rational
     	numerator += other.numerator*(lcm/other.denominator);
      denominator=lcm;	
     }
+    public int compareTo(Rational other){
+        if(other.floatValue()> floatValue()){
+            return -1;
+        }
+        if(other.floatValue()< floatValue()){
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    }
     
     public static void main(String[] args) {
 	    Rational r = new Rational(2,3); //Stores the rational number 2/3
@@ -88,6 +99,7 @@ public class Rational
     	System.out.println(r.toString());
     	t.reduce(); //Changes t to 2/9
     	System.out.println(t.toString());
+    	System.out.println(r.compareTo(s));
     }
 
 }
